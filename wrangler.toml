@@ -6,4 +6,4 @@ pages_build_output_dir = "public"
 # a w projekcie Pages: Settings → Bindings → KV namespace → nazwa zmiennej: TRESCI.
 [[kv_namespaces]]
 binding = "TRESCI"
-id = "WKLEJ_ID_NAMESPACE_KV"
+id = "a79ea77eaf9c4d12ae24975c9d39928c"
