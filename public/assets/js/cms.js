@@ -101,7 +101,7 @@
     if (f.t === 'area') return '<div class="cmsp-fld">' + lab + '<textarea' + at + ' rows="' + (f.rows || 4) + '"' + (f.max ? ' maxlength="' + f.max + '"' : '') + '>' + esc(v == null ? '' : v) + '</textarea>' + hint + '</div>';
     if (f.t === 'sel') return '<div class="cmsp-fld">' + lab + '<select' + at + (f.num ? ' data-num="1"' : '') + '>' + optList(f).map(function (o) { return '<option value="' + esc(o[0]) + '"' + (String(o[0]) === String(v == null ? '' : v) ? ' selected' : '') + '>' + esc(o[1]) + '</option>'; }).join('') + '</select>' + hint + '</div>';
     if (f.t === 'range') return '<div class="cmsp-fld">' + lab + '<div class="cmsp-rng"><input type="range" min="0" max="80" step="5"' + at + ' data-num="1" value="' + (v || 0) + '"><output>' + (v || 0) + '%</output></div>' + hint + '</div>';
-    if (f.t === 'color') return '<div class="cmsp-fld">' + lab + '<input type="color"' + at + ' value="' + esc(/^#[0-9a-fA-F]{6}$/.test(v) ? v : '#F4F1EC') + '"></div>';
+    if (f.t === 'color') return '<div class="cmsp-fld">' + lab + '<input type="color"' + at + ' value="' + esc(/^#[0-9a-fA-F]{6}$/.test(v) ? v : '#F5F0E8') + '"></div>';
     if (f.t === 'img') {
       return '<div class="cmsp-fld cmsp-img">' + '<span class="cmsp-lab">' + esc(f.l) + (f.req ? ' <span aria-hidden="true">*</span>' : '') + '</span><div class="cmsp-imgrow"><div class="cmsp-thumb">' + (v ? '<img src="' + esc(v) + '" alt="">' : '<span>brak</span>') + '</div>' +
         '<div class="cmsp-imgb"><button type="button" class="cmsp-b2" data-upl>Wgraj z dysku</button> <button type="button" class="cmsp-b2" data-rmimg>Usuń zdjęcie</button><input type="file" accept="image/*" hidden></div></div>' +
@@ -303,7 +303,8 @@
   CUSTOM_PAGES.pulpit = function () {
     var st = S.st, now = NPR.today(), wp = st.strony.aktualnosci.wpisy || [], akt = wp.filter(function (w) { return NPR.status(w) === 'aktywna'; }).length, zap = wp.filter(function (w) { return NPR.status(w) === 'zaplanowana'; }).length;
     var px = NPR.pixelId(st), tile = function (go, n, l, s) { return '<button type="button" class="cmsp-tile" data-go="' + go + '"><strong>' + n + '</strong><span>' + l + '</span>' + (s ? '<small>' + s + '</small>' : '') + '</button>'; };
-    var h = '<div class="cmsp-ph"><div><h1 id="cmsp-h1" tabindex="-1">Dzień dobry!</h1><p>Co chcesz dziś zmienić na stronie?</p></div></div><div class="cmsp-quick"><button type="button" class="cmsp-b" data-q="akt">+ Aktualność</button><button type="button" class="cmsp-b" data-q="zdj">+ Zdjęcie do galerii</button><button type="button" class="cmsp-b2" data-go="cennik">Cennik</button><button type="button" class="cmsp-b2" data-go="regulamin">Regulamin</button></div>' +
+    var warn = S.startowe ? '<div class="cmsp-warn" role="alert"><strong>Używasz hasła startowego.</strong> Zmień je na własne — zajmie to minutę, a nic nie trzeba ustawiać w Cloudflare ani na GitHubie. <button type="button" class="cmsp-b" data-go="haslo">Zmień hasło</button></div>' : '';
+    var h = warn + '<div class="cmsp-ph"><div><h1 id="cmsp-h1" tabindex="-1">Dzień dobry!</h1><p>Co chcesz dziś zmienić na stronie?</p></div></div><div class="cmsp-quick"><button type="button" class="cmsp-b" data-q="akt">+ Aktualność</button><button type="button" class="cmsp-b" data-q="zdj">+ Zdjęcie do galerii</button><button type="button" class="cmsp-b2" data-go="cennik">Cennik</button><button type="button" class="cmsp-b2" data-go="regulamin">Regulamin</button></div>' +
       '<div class="cmsp-tiles">' + tile('aktualnosci', akt, 'aktualności na stronie', zap ? '+ ' + zap + ' zaplanowane' : '') + tile('oferta', (st.pakiety || []).length, 'pakiety w ofercie') + tile('portfolio', (st.strony.portfolio.zdjecia || []).length, 'zdjęcia w galerii') + tile('opinie', NPR.opinieWidoczne(st).length, 'opinie klientów', 'lista startuje pusta') + tile('faq', (st.strony.faq.pytania || []).length, 'pytań w FAQ') + tile('piksel', px ? 'włączony' : 'wyłączony', 'Piksel Facebooka', px ? 'ID ' + px : 'wpisz ID w ustawieniach') + '</div>';
     // harmonogram (Gantt): 30 dni wstecz, 90 naprzód
     var base = new Date(now + 'T00:00:00'), a0 = -30, span = 120, day = function (iso) { return Math.round((new Date(iso + 'T00:00:00') - base) / 864e5); };
@@ -361,7 +362,7 @@
   CUSTOM_PAGES.haslo = function () {
     return pageHead('haslo', 'Zmiana hasła do panelu', 'Nowe hasło obowiązuje od razu; pozostałe zalogowane przeglądarki zostaną wylogowane. Hasło przechowywane jest wyłącznie jako hash na serwerze.', '', '') +
       (S.demo ? '<p class="cmsp-note">W trybie demonstracyjnym zmiana hasła jest niedostępna.</p>' : '') +
-      '<form class="cmsp-card cmsp-pw" id="cmsp-pw" novalidate><div class="cmsp-fld"><label for="pw0">Obecne hasło</label><input id="pw0" type="password" autocomplete="current-password"></div><div class="cmsp-fld"><label for="pw1">Nowe hasło (min. 10 znaków)</label><input id="pw1" type="password" autocomplete="new-password"><div class="cmsp-meter" aria-hidden="true"><i></i></div><small id="pw-s" class="cmsp-hint">Siła hasła: —</small></div><div class="cmsp-fld"><label for="pw2">Powtórz nowe hasło</label><input id="pw2" type="password" autocomplete="new-password"></div><p class="cmsp-merr" role="alert" id="pw-e"></p><button type="submit" class="cmsp-b"' + (S.demo ? ' disabled' : '') + '>Zmień hasło</button></form>';
+      '<form class="cmsp-card cmsp-pw" id="cmsp-pw" novalidate><div class="cmsp-fld"><label for="pw0">Obecne hasło</label><input id="pw0" type="password" autocomplete="current-password"></div><div class="cmsp-fld"><label for="pw1">Nowe hasło (min. 8 znaków)</label><input id="pw1" type="password" autocomplete="new-password"><div class="cmsp-meter" aria-hidden="true"><i></i></div><small id="pw-s" class="cmsp-hint">Siła hasła: —</small></div><div class="cmsp-fld"><label for="pw2">Powtórz nowe hasło</label><input id="pw2" type="password" autocomplete="new-password"></div><p class="cmsp-merr" role="alert" id="pw-e"></p><button type="submit" class="cmsp-b"' + (S.demo ? ' disabled' : '') + '>Zmień hasło</button></form>';
   };
   CUSTOM_PAGES_AFTER.haslo = function () {
     var f = $('#cmsp-pw'), p1 = $('#pw1'), er = $('#pw-e');
@@ -371,11 +372,11 @@
     });
     f.addEventListener('submit', function (e) {
       e.preventDefault(); if (S.demo) return;
-      if ($('#pw1').value.length < 10) { er.textContent = 'Nowe hasło musi mieć co najmniej 10 znaków.'; return; }
+      if ($('#pw1').value.length < 8) { er.textContent = 'Nowe hasło musi mieć co najmniej 8 znaków.'; return; }
       if ($('#pw1').value !== $('#pw2').value) { er.textContent = 'Nowe hasła nie są takie same.'; return; }
       er.textContent = 'Zapisywanie…';
       api('/api/haslo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ stare: $('#pw0').value, nowe: $('#pw1').value }) }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) throw new Error(j.blad || 'Nie udało się zmienić hasła.'); }); })
-        .then(function () { er.textContent = ''; f.reset(); toast('Hasło zmienione. Obowiązuje od teraz.'); }).catch(function (x) { er.textContent = x.name === 'AbortError' ? 'Serwer chwilowo nie odpowiada — spróbuj ponownie.' : x.message; });
+        .then(function () { er.textContent = ''; f.reset(); S.startowe = false; toast('Hasło zmienione. Obowiązuje od teraz.'); }).catch(function (x) { er.textContent = x.name === 'AbortError' ? 'Serwer chwilowo nie odpowiada — spróbuj ponownie.' : x.message; });
     });
   };
   CUSTOM_PAGES.kopia = function () {
@@ -459,8 +460,8 @@
   function open() {
     if (root || S.opening) return; S.opening = true;
     load().then(function () {
-      S.px0 = NPR.pixelId(S.st); shell(); D.body.classList.add('cmsp-open'); var r = D.getElementById('np-root'); r && (r.inert = true);
-      S.opening = false; render(S.page || 'pulpit');
+      S.px0 = NPR.pixelId(S.st); return (S.demo ? Promise.resolve() : api('/api/sesja', {}, 6000).then(function (r) { return r.json(); }).then(function (j) { S.startowe = !!j.startowe; }).catch(function () {})).then(function () { shell(); D.body.classList.add('cmsp-open'); var r = D.getElementById('np-root'); r && (r.inert = true);
+      S.opening = false; render(S.page || 'pulpit'); });
     }).catch(function (e) {
       S.opening = false; var d = D.createElement('div'); d.className = 'cmsp-ov cmsp-fail'; d.setAttribute('role', 'alertdialog');
       d.innerHTML = '<div class="cmsp-card"><h1>Panel administratora</h1><p>' + esc((e && e.msg) || 'Serwer chwilowo nie odpowiada — spróbuj ponownie.') + '</p><button type="button" class="cmsp-b" data-r>Spróbuj ponownie</button> <button type="button" class="cmsp-b2" data-x>Zamknij</button></div>';

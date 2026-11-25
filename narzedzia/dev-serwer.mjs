@@ -1,10 +1,9 @@
 // Lokalny serwer testowy: statyczne pliki z public/ + /api/* z functions/ + atrapa KV w pamięci. Użycie: node narzedzia/dev-serwer.mjs [port]
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath, pathToFileURL } from 'node:url';
-import { hashuj } from '../lib/serwer.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), pub = path.join(root, 'public'), port = Number(process.argv[2] || 8766);
 const store = new Map();
 const KV = { async get(k, t) { const v = store.get(k); if (v == null) return null; return t === 'json' ? JSON.parse(v) : (t === 'arrayBuffer' ? v : String(v)); }, async put(k, v) { store.set(k, v); }, async delete(k) { store.delete(k); }, async list() { return { keys: [...store.keys()].map((name) => ({ name })) }; } };
-const env = { TRESCI: KV, SESSION_SECRET: 'test-secret-test-secret-test-secret', ADMIN_PASSWORD_HASH: await hashuj(process.env.TEST_PW || 'testowe-haslo-123') };
+const env = { TRESCI: KV, SESSION_SECRET: 'test-secret-test-secret-test-secret' };
 const mw = (await import(pathToFileURL(path.join(root, 'functions/_middleware.js')))).onRequest;
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.json': 'application/json', '.xml': 'application/xml', '.txt': 'text/plain', '.woff2': 'font/woff2', '.webmanifest': 'application/manifest+json' };
 function route(p) {

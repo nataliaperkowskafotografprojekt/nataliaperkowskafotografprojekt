@@ -1,4 +1,6 @@
-import { json, sesjaOk } from '../../lib/serwer.js';
+import { json, sesjaOk, haslaStartowe } from '../../lib/serwer.js';
 export async function onRequestGet({ request, env }) {
-  return (await sesjaOk(request, env)) ? json({ ok: true }) : json({ ok: false }, 401);
+  if (!(await sesjaOk(request, env))) return json({ ok: false }, 401);
+  let startowe = false; try { startowe = await haslaStartowe(env); } catch (e) {}
+  return json({ ok: true, startowe });
 }

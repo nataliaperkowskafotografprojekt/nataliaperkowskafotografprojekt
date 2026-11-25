@@ -23,7 +23,7 @@ R.PAGES.forEach((p) => {
 });
 // 404 — z linkiem do strony głównej
 {
-  const body = R.renderBody(DANE, 'polityka').replace(/<main id="tresc">[\s\S]*<\/main>/, '<main id="tresc"><section class="np-sec np-t-ciemny np-hero" aria-labelledby="b404"><div class="np-bg" style="background:#F4F1EC"></div><div class="np-in"><div class="np-narrow"><h1 id="b404" class="np-h1">Nie znaleziono strony</h1><p class="np-lead">Takiej strony nie ma lub została przeniesiona.</p><div class="np-actions"><a class="np-btn" href="/">Wróć na stronę główną</a><a class="np-btn np-btn-line" href="/kontakt/">Kontakt</a></div></div></div></section></main>');
+  const body = R.renderBody(DANE, 'polityka').replace(/<main id="tresc">[\s\S]*<\/main>/, '<main id="tresc"><section class="np-sec np-t-ciemny np-hero" aria-labelledby="b404"><div class="np-bg" style="background:#F5F0E8"></div><div class="np-in"><div class="np-narrow"><h1 id="b404" class="np-h1">Nie znaleziono strony</h1><p class="np-lead">Takiej strony nie ma lub została przeniesiona.</p><div class="np-actions"><a class="np-btn" href="/">Wróć na stronę główną</a><a class="np-btn np-btn-line" href="/kontakt/">Kontakt</a></div></div></div></section></main>');
   const head = '<title>Nie znaleziono strony | ' + DANE.firma.nazwa + '</title>\n<meta name="robots" content="noindex">\n<meta name="np:fbpx" content="' + R.pixelId(DANE) + '">\n';
   const html = tpl.replace(/<!--NP:HEAD-->[\s\S]*?<!--\/NP:HEAD-->/, head).replace(/<!--NP:BODY-->[\s\S]*?<!--\/NP:BODY-->/, body).replace('{{KEY}}', '404').replace('{{KRYTYCZNY}}', () => crit).replace('{{PRELOAD_IMG}}', '');
   w('404.html', html);
@@ -31,7 +31,7 @@ R.PAGES.forEach((p) => {
 w('assets/css/krytyczny.css', crit + '\n'); // używany przez podgląd w panelu
 w('sitemap.xml', R.sitemap(DANE, undefined, today));
 w('robots.txt', R.robots(DANE));
-w('site.webmanifest', JSON.stringify({ name: DANE.firma.nazwa, short_name: 'N. Perkowska', lang: 'pl', start_url: '/', display: 'standalone', background_color: '#F4F1EC', theme_color: '#F4F1EC',
+w('site.webmanifest', JSON.stringify({ name: DANE.firma.nazwa, short_name: 'N. Perkowska', lang: 'pl', start_url: '/', display: 'standalone', background_color: '#F5F0E8', theme_color: '#F5F0E8',
   icons: [{ src: '/assets/icons/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/icons/icon-512.png', sizes: '512x512', type: 'image/png' }] }, null, 2));
 w('_routes.json', JSON.stringify({ version: 1, include: ['/*'], exclude: ['/assets/*', '/favicon*', '/apple-touch-icon.png', '/robots.txt', '/sitemap.xml', '/site.webmanifest'] }, null, 2));
 w('_headers', `/*

@@ -6,9 +6,9 @@ Czysty HTML/CSS/JS (bez frameworków) + Cloudflare Pages Functions + KV (panel a
 
 1. **Repozytorium:** wgraj całą zawartość ZIP-a do GitHuba (bez `.wrangler`, `.dev.vars`).
 2. **Domena:** proponowana `nataliaperkowska.pl` (jeszcze niezakupiona). Zmiana: `public/assets/js/dane.js` → `firma.domena` (albo w panelu: Dane firmy i RODO), potem `node narzedzia/zbuduj.mjs`.
-3. **KV:** Cloudflare → Workers & Pages → KV → *Create namespace* (np. `np-tresci`). W projekcie Pages: *Settings → Bindings → KV namespace* → zmienna **`TRESCI`**. (W `wrangler.toml` wpisz id, jeśli używasz wranglera.)
-4. **Hasło do panelu:** lokalnie `node narzedzia/hash-hasla.mjs "twoje-haslo-min-10-znakow"` → wypisze `ADMIN_PASSWORD_HASH` i `SESSION_SECRET`. Wklej je w *Settings → Variables and Secrets* (jako Secret).
-5. **Build:** *Framework preset: None*, *Build command:* `node narzedzia/zbuduj.mjs`, *Build output directory:* `public`.
+3. **KV:** Cloudflare → Workers & Pages → KV → *Create namespace* (np. `np-tresci`). W projekcie Pages: *Settings → Bindings → KV namespace* → zmienna **`TRESCI`**. W repozytorium nie ma pliku `wrangler.toml` (jest `wrangler.toml.przyklad`): Cloudflare uznaje go za jedyne źródło konfiguracji i wywala wdrożenie przy nieprawdziwym ID KV. Wiązanie KV ustawiasz w panelu; w *Settings → Build* podaj *Build output directory* `public`, a *Build command* zostaw puste (strona jest już zbudowana). Jeśli wolisz konfigurację w pliku, zmień nazwę przykładu na `wrangler.toml` i wpisz prawdziwe ID namespace.
+4. **Hasło do panelu:** startowe hasło to **`foto2026`** — działa od razu, bez żadnych ustawień w Cloudflare i GitHubie (potrzebna jest tylko baza KV `TRESCI`). Po pierwszym logowaniu wejdź w *Zmiana hasła* w panelu i ustaw własne (min. 8 znaków); zapisuje się w bazie i ma pierwszeństwo. Pulpit przypomina o zmianie, dopóki hasło jest startowe. Zapomniane hasło: usuń klucz `auth:hash` w KV (wraca `foto2026`). Opcjonalnie możesz ustawić `ADMIN_PASSWORD_HASH` i `SESSION_SECRET` (`node narzedzia/hash-hasla.mjs "hasło"`).
+5. **Build:** *Framework preset: None*, *Build command:* puste (albo `node narzedzia/zbuduj.mjs`), *Build output directory:* `public`.
 6. **Formularz (e-mail przez Resend):** `RESEND_API_KEY`, `MAIL_OD` (np. `Formularz <formularz@twojadomena.pl>`), `MAIL_DO` (adres odbiorcy). Bez zweryfikowanej domeny w Resend wiadomości dochodzą tylko na adres konta Resend.
 7. **Opcjonalnie:** `TURNSTILE_SECRET` (+ klucz witryny w panelu) — antyspam; `INSTAGRAM_TOKEN` (konto profesjonalne) — najnowsze zdjęcia z Instagrama pobierane przez serwer strony (RODO), odświeżanie tokenu automatyczne.
 
@@ -18,7 +18,7 @@ Test lokalny: `node narzedzia/dev-serwer.mjs` (atrapa KV w pamięci, hasło test
 
 ## 2. Bezpieczeństwo
 
-- Hasło: tylko hash PBKDF2-SHA256 (sól, 100 000 iteracji); nigdy w kodzie ani w odpowiedzi API. Zmiana hasła w panelu unieważnia pozostałe sesje.
+- Hasło: tylko hash PBKDF2-SHA256 (sól, 100 000 iteracji); w kodzie jest wyłącznie hash hasła startowego `foto2026` (jawne hasło startowe jest znane każdemu, kto czyta ten plik — dlatego zmień je od razu po wdrożeniu). Zmiana hasła w panelu unieważnia pozostałe sesje.
 - Sesja 8 h: ciasteczko HttpOnly + Secure + SameSite=Strict, podpis HMAC, sesje w KV.
 - 5 nieudanych logowań / 15 min z jednego IP → blokada.
 - Zapis tylko z nagłówkiem `X-CMS: 1` i zgodnym `Origin` (CSRF).

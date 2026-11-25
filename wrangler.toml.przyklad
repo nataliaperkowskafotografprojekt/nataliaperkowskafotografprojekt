@@ -1,0 +1,11 @@
+# Plik przykładowy. Cloudflare Pages używa wrangler.toml jako jedynego źródła konfiguracji, więc przy wdrożeniu przez Git
+# NIE nazywaj go wrangler.toml, dopóki nie wpiszesz prawdziwego ID z KV (poniżej). Domyślnie ustawiasz wszystko w panelu Cloudflare.
+name = "natalia-perkowska-fotografia"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "public"
+
+# Magazyn danych panelu (treści, zdjęcia, sesje, kopie). Utwórz: Workers & Pages → KV → Create namespace,
+# a w projekcie Pages: Settings → Bindings → KV namespace → nazwa zmiennej: TRESCI.
+[[kv_namespaces]]
+binding = "TRESCI"
+id = "WKLEJ_ID_NAMESPACE_KV"
