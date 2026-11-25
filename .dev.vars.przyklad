@@ -1,0 +1,9 @@
+# Skopiuj do .dev.vars (NIE wgrywaj do repozytorium). Wartości wygeneruj: node narzedzia/hash-hasla.mjs "hasło"
+ADMIN_PASSWORD_HASH=
+SESSION_SECRET=
+# Opcjonalnie:
+RESEND_API_KEY=
+MAIL_OD=
+MAIL_DO=
+TURNSTILE_SECRET=
+INSTAGRAM_TOKEN=

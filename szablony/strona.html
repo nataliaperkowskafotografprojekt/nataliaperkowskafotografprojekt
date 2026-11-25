@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F4F1EC">
+<!--NP:HEAD-->{{HEAD}}<!--/NP:HEAD-->
+<script src="/assets/js/start.js"></script>
+<link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/cormorant-garamond-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+{{PRELOAD_IMG}}<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>{{KRYTYCZNY}}</style>
+<link rel="stylesheet" href="/assets/css/site.css">
+<!-- GOOGLE SEARCH CONSOLE — alternatywa dla weryfikacji DNS: odkomentuj i wklej kod z Search Console:
+<meta name="google-site-verification" content="WKLEJ_KOD">
+-->
+<!-- GOOGLE ANALYTICS 4 — NIE włączaj bez zgody: baner cookies obsługuje obecnie tylko Piksel Facebooka. Przed dodaniem GA4 rozbuduj baner
+     o kategorię „analityka” (Consent Mode v2: domyślnie analytics_storage = 'denied', 'granted' dopiero po kliknięciu „Akceptuję”). -->
+<script src="/assets/js/site.js" defer></script>
+</head>
+<body class="np-p-{{KEY}}">
+<a class="np-skip" href="#tresc">Przejdź do treści</a>
+<div id="np-root"><!--NP:BODY-->{{BODY}}<!--/NP:BODY--></div>
+<noscript><style>.np-lock{display:none}</style></noscript>
+</body>
+</html>
