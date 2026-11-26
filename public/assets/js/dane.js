@@ -8,10 +8,10 @@
   var IMG = '/assets/img/';
   // tło sekcji: typ zdjecie|wideo|kolor, ov = przyciemnienie 0–80 (%), txt = jasny|ciemny
   function B(img, alt, ov, txt) {
-    return { typ: 'zdjecie', img: IMG + img + '.webp', alt: alt, wideo: '', plakat: '', kolor: '#F5F0E8', ov: ov == null ? 45 : ov, txt: txt || 'jasny' };
+    return { typ: 'zdjecie', img: IMG + img + '.webp', alt: alt, wideo: '', plakat: '', kolor: '#F5F4F1', ov: ov == null ? 45 : ov, txt: txt || 'jasny' };
   }
   function K(kolor, txt) {
-    return { typ: 'kolor', img: '', alt: '', wideo: '', plakat: '', kolor: kolor || '#F5F0E8', ov: 0, txt: txt || 'ciemny' };
+    return { typ: 'kolor', img: '', alt: '', wideo: '', plakat: '', kolor: kolor || '#F5F4F1', ov: 0, txt: txt || 'ciemny' };
   }
   var DO_UZ = '[DO UZUPEŁNIENIA]';
 
@@ -105,7 +105,7 @@
           btn: 'Zapytaj o termin'
         },
         intro: {
-          bg: K('#F5F0E8'),
+          bg: K('#F5F4F1'),
           h2: 'Naturalnie, ciepło, reportersko',
           tekst: 'Wykonuję sesje zdjęciowe dla kobiet, par i rodzin z dziećmi. Fotografuję w plenerze, w studio oraz w Twoim domu.',
           wiecej:
@@ -114,7 +114,7 @@
         },
         rodzaje: { bg: B('dlaczego-warto-tlo', 'Obiektyw aparatu trzymany w dłoni na tle jeziora', 55), h2: 'Rodzaje sesji', btn: 'Zobacz całą ofertę' },
         dlaczego: {
-          bg: K('#E9E0D2'),
+          bg: K('#E7E6E3'),
           h2: 'Dlaczego warto?',
           elementy: [
             { tytul: 'Personalizacja', tekst: 'Do każdej sesji podchodzę bardzo indywidualnie, gdyż usługi, które dla Was oferuję, są produktem premium. To Wy tego dnia jesteście w centrum mojej uwagi, więc pragnę, by dzień ten był pełen pozytywnych emocji, a otrzymane kadry sprawiły, że spojrzycie na siebie w sposób, który już na zawsze pozostanie w Waszej pamięci.' },
@@ -123,7 +123,7 @@
             { tytul: 'Magia postprodukcji', tekst: 'Retusz jest jednym z elementów, który wyróżnia moje prace i do którego przywiązuję wielką uwagę. To czasochłonny proces wymagający często wielu godzin spędzonych przed komputerem. Wykonuję go z wielką starannością, tak by mimo ingerencji w zdjęcia ciągle pozostawały one jak najbardziej naturalne.' }
           ]
         },
-        insta: { bg: K('#F5F0E8'), h2: 'Najnowsze zdjęcia z Instagrama', tekst: 'Zajrzyj na mój profil i zobacz, co ostatnio fotografowałam.', btn: 'Odwiedź profil na Instagramie' },
+        insta: { bg: K('#F5F4F1'), h2: 'Najnowsze zdjęcia z Instagrama', tekst: 'Zajrzyj na mój profil i zobacz, co ostatnio fotografowałam.', btn: 'Odwiedź profil na Instagramie' },
         cta: {
           bg: B('kontakt-tlo-sesja-w-domu', 'Sylwetka kobiety w ciąży przy oknie z firanką — sesja w domu klienta', 55),
           h2: 'Umówmy się na Twoją sesję',
@@ -139,9 +139,9 @@
           desc: 'Poznaj Natalię Perkowską — fotografkę z Łańcuta. Naturalny, ciepły, reporterski styl i indywidualne podejście do kobiet, par i rodzin. Zapytaj o termin sesji.'
         },
         hero: { bg: B('o-mnie-portret-fotografki', 'Dłoń trzymająca aparat — fotograf lifestylowy w pracy', 45), nad: 'O mnie', h1: 'Natalia Perkowska — fotograf lifestylowy z Łańcuta', haslo: 'Naturalny. Ciepły. Reporterski.' },
-        misja: { bg: K('#F5F0E8'), h2: 'Moja misja', tekst: 'Każda chwila ma swoje piękno, a ja pomagam je zatrzymać w kadrze. Fotografuję z miłością, tworząc niepowtarzalne wspomnienia pełne emocji i ciepła.\n\nMoją misją jest uchwycenie Twojej historii — takiej, jaka jest: prawdziwej, naturalnej, pełnej uczuć.' },
+        misja: { bg: K('#F5F4F1'), h2: 'Moja misja', tekst: 'Każda chwila ma swoje piękno, a ja pomagam je zatrzymać w kadrze. Fotografuję z miłością, tworząc niepowtarzalne wspomnienia pełne emocji i ciepła.\n\nMoją misją jest uchwycenie Twojej historii — takiej, jaka jest: prawdziwej, naturalnej, pełnej uczuć.' },
         styl: {
-          bg: K('#E9E0D2'),
+          bg: K('#E7E6E3'),
           h2: 'Jak pracuję',
           tekst: 'Mój styl to naturalność, ciepło i reportażowe spojrzenie. Pracuję z kobietami, parami i rodzinami z dziećmi — w plenerze, w studio i w domach klientów.',
           wartosci: [
@@ -151,7 +151,7 @@
           ]
         },
         dlaczego: { bg: B('dlaczego-warto-tlo', 'Obiektyw aparatu trzymany w dłoni na tle jeziora', 60), h2: 'Dlaczego klienci mnie wybierają', tekst: 'Oferuję przystępne cenowo pakiety, w których zawarta jest większa ilość zdjęć. Nowoczesne metody retuszu przyspieszają moją pracę, dzięki czemu czas od wykonania sesji do oddania zdjęć wynosi zaledwie 2 tygodnie.' },
-        gdzie: { bg: K('#F5F0E8'), h2: 'Gdzie fotografuję', tekst: 'Pracuję na terenie gminy Łańcut, ale można się ze mną umówić także na sesje w Rzeszowie, Leżajsku, Przeworsku i okolicach (do ok. 50 km od Łańcuta). Fotografuję w plenerze, w studio oraz w domach klientów.', btn: 'Zapytaj o termin' }
+        gdzie: { bg: K('#F5F4F1'), h2: 'Gdzie fotografuję', tekst: 'Pracuję na terenie gminy Łańcut, ale można się ze mną umówić także na sesje w Rzeszowie, Leżajsku, Przeworsku i okolicach (do ok. 50 km od Łańcuta). Fotografuję w plenerze, w studio oraz w domach klientów.', btn: 'Zapytaj o termin' }
       },
 
       /* ======================= OFERTA ======================= */
@@ -169,7 +169,7 @@
         ],
         pakietyH2: 'Pakiety sesji',
         pakietyWstep: 'Przystępne cenowo pakiety z większą liczbą zdjęć. Gotowe, wyretuszowane zdjęcia otrzymasz po 2 tygodniach.',
-        gdzie: { bg: K('#E9E0D2'), h2: 'Gdzie odbywają się sesje', tekst: 'Fotografuję w plenerze, w studio oraz w domach klientów — na terenie gminy Łańcut oraz w Rzeszowie, Leżajsku, Przeworsku i okolicach (do ok. 50 km od Łańcuta).', btn: 'Zapytaj o termin' }
+        gdzie: { bg: K('#E7E6E3'), h2: 'Gdzie odbywają się sesje', tekst: 'Fotografuję w plenerze, w studio oraz w domach klientów — na terenie gminy Łańcut oraz w Rzeszowie, Leżajsku, Przeworsku i okolicach (do ok. 50 km od Łańcuta).', btn: 'Zapytaj o termin' }
       },
 
       /* ======================= CENNIK ======================= */
@@ -179,7 +179,7 @@
           desc: 'Sprawdź cennik sesji zdjęciowych w Łańcucie i okolicach: pakiety Chwila, Pamiątka i Opowieść z cenami. Przystępne pakiety z większą liczbą zdjęć.',
         },
         hero: { bg: B('cennik-tlo-pakiety-sesji', 'Odbitki zdjęć przypięte do tablicy — cennik sesji', 64), nad: 'Cennik', h1: 'Cennik sesji zdjęciowych — pakiety Chwila, Pamiątka, Opowieść', tekst: 'Przejrzyste ceny pakietów — bez dopytywania i niespodzianek.' },
-        tabele: { bg: K('#F5F0E8'), h2: 'Pakiety i ceny' },
+        tabele: { bg: K('#F5F4F1'), h2: 'Pakiety i ceny' },
         pozycje: [
           { kat: 'Pakiety sesji', nazwa: 'Pakiet Chwila', dopisek: '20 zdjęć w wersji cyfrowej, wyretuszowane i gotowe po 2 tygodniach', czas: 'ok. 1 godzina', cena: '350 zł' },
           { kat: 'Pakiety sesji', nazwa: 'Pakiet Pamiątka', dopisek: '40 zdjęć w wersji cyfrowej, wyretuszowane i gotowe po 2 tygodniach', czas: 'ok. 1,5 godziny', cena: '550 zł' },
@@ -195,7 +195,7 @@
           desc: 'Zobacz portfolio sesji portretowych, rodzinnych, lifestylowych i studyjnych. Naturalne, ciepłe, reporterskie zdjęcia — fotograf Łańcut i Rzeszów.'
         },
         hero: { bg: B('portfolio-tlo-galerie', 'Para spacerująca jesienną aleją — portfolio sesji', 55), nad: 'Portfolio', h1: 'Portfolio — sesje kobiece, rodzinne i lifestylowe', tekst: 'Wybierz kategorię i przewijaj kadry na pełnym ekranie.' },
-        galeria: { bg: K('#1F1A15', 'jasny'), h2: 'Galeria zdjęć' },
+        galeria: { bg: K('#161616', 'jasny'), h2: 'Galeria zdjęć' },
         kategorie: [{ nazwa: 'Portretowe i wizerunkowe' }, { nazwa: 'Rodzinne, noworodkowe i ciążowe' }, { nazwa: 'Lifestyle' }, { nazwa: 'Studyjne' }],
         zdjecia: [
           { img: IMG + 'galeria-01-portret-kobiecy-plener.webp', alt: 'Portret kobiety w plenerze w świetle zachodzącego słońca', kat: 'Portretowe i wizerunkowe', podpis: 'Portret w plenerze', widoczna: true },
@@ -215,7 +215,7 @@
           title: 'Opinie o fotografie Łańcut | Natalia Perkowska Fotografia',
           desc: 'Przeczytaj, co o sesjach zdjęciowych z Natalią Perkowską piszą kobiety, pary i rodziny. Opinie klientów fotografa z Łańcuta — zapytaj o termin swojej sesji.'
         },
-        tlo: { bg: K('#F5F0E8'), h1: 'Opinie klientów', wstep: 'Co mówią osoby, które były na sesji.' },
+        tlo: { bg: K('#F5F4F1'), h1: 'Opinie klientów', wstep: 'Co mówią osoby, które były na sesji.' },
         lista: [], // START PUSTA — wpisy dodaje klientka (autor, usługa, ocena 3–5, treść). Nie wymyślamy opinii.
         linkGoogle: ''
       },
@@ -226,7 +226,7 @@
           title: 'Sesja zdjęciowa – FAQ | Natalia Perkowska Fotografia',
           desc: 'Gdzie odbywają się sesje, jak się przygotować i ile czeka się na zdjęcia? Odpowiedzi na najczęstsze pytania o sesję zdjęciową z fotografem z Łańcuta.'
         },
-        tlo: { bg: K('#F5F0E8'), h1: 'Najczęstsze pytania o sesję zdjęciową', wstep: 'Wszystko, o co klienci pytają najczęściej, w jednym miejscu.' },
+        tlo: { bg: K('#F5F4F1'), h1: 'Najczęstsze pytania o sesję zdjęciową', wstep: 'Wszystko, o co klienci pytają najczęściej, w jednym miejscu.' },
         // ok: true = odpowiedź pochodzi z briefu i trafia do danych strukturalnych FAQPage; false = propozycja / do uzupełnienia
         pytania: [
           { q: 'W jakim miejscu wykonywane są sesje?', a: 'Fotografuję w plenerze, w studio oraz w domach klientów. Pracuję na terenie gminy Łańcut, a także w Rzeszowie, Leżajsku, Przeworsku i okolicach — do ok. 50 km od Łańcuta.', ok: true, widoczna: true },
@@ -248,7 +248,7 @@
           title: 'Aktualności fotograf Łańcut | Natalia Perkowska Fotografia',
           desc: 'Nowości, wolne terminy i zapowiedzi sesji zdjęciowych od fotografa z Łańcuta, działającego też w Rzeszowie. Sprawdź, co nowego, i zapytaj o termin.'
         },
-        tlo: { bg: K('#F5F0E8'), h1: 'Aktualności', wstep: 'Nowości, terminy i zapowiedzi.' },
+        tlo: { bg: K('#F5F4F1'), h1: 'Aktualności', wstep: 'Nowości, terminy i zapowiedzi.' },
         wpisy: [] // wpisy dodaje klientka w panelu: tytuł, treść, data, „pokazuj od/do”, „na górnym pasku”
       },
 
@@ -260,7 +260,7 @@
         },
         hero: { bg: B('bony-tlo-prezent-sesja', 'Białe pudełko z czerwoną wstążką — voucher na sesję zdjęciową', 50), nad: 'Bony podarunkowe', h1: 'Voucher na sesję zdjęciową — pomysł na prezent', tekst: 'Podaruj bliskim chwilę, która zostanie na zdjęciach na lata.' },
         warunki: {
-          bg: K('#F5F0E8'),
+          bg: K('#F5F4F1'),
           h2: 'Jak działa voucher',
           wstep: 'Voucher możesz przeznaczyć na dowolny pakiet sesji. Obdarowana osoba sama wybiera termin i miejsce, a ja dopasowuję sesję do jej stylu.',
           punkty: [
@@ -278,7 +278,7 @@
           title: 'Regulamin sesji zdjęciowej | Natalia Perkowska Fotografia',
           desc: 'Regulamin sesji zdjęciowej Natalii Perkowskiej: rezerwacja terminu, przebieg sesji, czas realizacji i prawa do zdjęć. Sprawdź zasady współpracy.'
         },
-        tlo: { bg: K('#F5F0E8'), h1: 'Regulamin sesji zdjęciowej' },
+        tlo: { bg: K('#F5F4F1'), h1: 'Regulamin sesji zdjęciowej' },
         // TREŚĆ ROBOCZA — regulaminu ze starej strony nie udało się pobrać automatycznie; klientka wkleja właściwy tekst w panelu (Regulamin).
         // Regulamin dostarczony przez klientkę (oryginalny tekst; poprawiono tylko oczywiste literówki). Edycja: panel → Regulamin.
         tekst: 'Poniższy regulamin powstał w celu ułatwienia kontaktu i dobrej współpracy z Tobą – nazwanym/ą w regulaminie KLIENTEM, a mną czyli FOTOGRAFEM.\n\n**1.** Każdy Klient przed sesją otrzymuje link do tego regulaminu i ma obowiązek zapoznania się z nim. Umówienie się na sesję zdjęciową jest jednocześnie akceptacją warunków panujących w regulaminie.\n\n**2.** Niniejszy regulamin jest obowiązkowym dokumentem, z którym klient ma obowiązek zapoznać się przed wykonaniem sesji zdjęciowej. Zapisanie się na sesję jest równoznaczne z zapoznaniem się i akceptacją regulaminu. Nieprzeczytanie tego dokumentu nie zwalnia klienta z przestrzegania zasad w nim zawartych.\n\n**3.** Po rezerwacji terminu sesji klient ma 3 dni na dokonanie wpłaty bezzwrotnego zadatku w wysokości 100 zł. Brak dokonania wpłaty jest równoznaczne z rezygnacją z sesji, zaś w przypadku rezygnacji z sesji zadatek przepada.\n\n**4.** Jeśli z ważnych przyczyn losowych Klient lub Fotograf nie może pojawić się na sesji to należy odwołać ją min. 24 h przed terminem sesji. W przypadku takiej sytuacji ustalimy nowy termin sesji.\n\n**5.** W przypadku sesji plenerowych jedynie bardzo złe warunki pogodowe są wskazaniem do przełożenia terminu sesji, np. porywisty wiatr, burza, duży mróz. Zachmurzone niebo, mgła, przelotny deszcz nie są przeciwskazaniem do sesji. W przypadku plenerów to wręcz dodatkowe atuty, które dodadzą kadrom sporo magii.\n\n**6.** Płatność za sesję następuje w dniu sesji gotówką, a za dodatkowe kadry płatność przy odbiorze zdjęć. Istnieje możliwość płatności przelewem za sesję, ale przelew powinien być wykonany przed sesją tak, aby w dniu sesji wpłata była zaksięgowana na koncie.\n\n**7.** W przypadku sesji rodzinnej sesja dotyczy jednej konkretnej rodziny, która składa się z określonej liczby osób, o której muszę zostać poinformowana przed sesją. Nie ma możliwości by do sesji w trakcie jej trwania dołączyły dodatkowe osoby (np. znajomi, kuzynostwo).\n\n**8.** Klient otrzymuje jedynie obrobione pliki zgodnie z wybranym pakietem. Nie ma możliwości otrzymania/zakupu surowych zdjęć RAW.\n\n**9.** Po wykonanej sesji w terminie do 5 dni Klient otrzymuje zdjęcia do wyboru w prywatnej galerii. Fotografie w galeriach to surowe pliki niepoddane obróbce graficznej, w pomniejszonej rozdzielczości, zabezpieczone znakiem wodnym. Wydłużenie czasu wyboru zdjęć przez klienta może skutkować wydłużeniem terminu oddania gotowego materiału. Brak wyboru zdjęć przez klienta w przeciągu podanego czasu automatycznie skutkuje wyborem zdjęć przez fotografa.\n\n**10.** W terminie do 30 dni od wyboru zdjęć przez Klienta, Fotograf prześle na maila gotowe zdjęcia w wersji elektronicznej oraz powiadomi o terminie odbioru odbitek oraz domówionych fotoproduktach.\n\n**11.** Istnieje możliwość odbioru gotowej sesji w wersji elektronicznej w terminie do 7 dni roboczych od jej wykonania za dodatkową opłatą 100 zł, jest to tzw. usługa EKSPRESS.\n\n**12.** Fotograf przetrzymuje niewybrane zdjęcia na dysku do czasu oddania gotowych zdjęć czyli realizacji zamówienia. W tym czasie Klient może dokupić dodatkowe ujęcia. Po obróbce i oddaniu gotowych zdjęć klientowi, pozostałe zdjęcia są usuwane z dysku. Po realizacji zamówienia obrobione zdjęcia są przechowane 6 miesięcy - po tym czasie są nieodwracalnie usuwane z dysku.\n\n**13.** Zgodnie z prawem autorskim klient zobowiązuje się nie edytować gotowych zdjęć np. nakładać filtrów, edytować na własną rękę.\n\n**14.** Klient oświadcza, że zapoznał się z portfolio fotografa i akceptuje ustaloną estetykę bez późniejszych dodatkowych żądań w kwestii obróbki graficznej oraz retuszu. Nie ma możliwości reklamacji ujęć w oparciu o wyżej wymienione aspekty. Zastrzegam także, że każda z sesji różni się od siebie, a zmiany te wynikają z różnych warunków plenerowych (pora roku, pora dnia, miejsce, warunki oświetleniowe) oraz oczekiwań Klienta ustalonych z fotografem przed sesją.\n\n**15.** Zakres standardowej obróbki nie obejmuje przekopiowywania postaci na zdjęciach, otwierania zamkniętych oczu na zdjęciu, usuwanie zmarszczek, wykonywania makijażu w programie Photoshop, "prasowania" ubrań w programie, farbowania odrostów włosów i paznokci. Taki rodzaj obróbki jest dodatkowo płatny.\n\n**16.** Przed sesją Klient deklaruje wybrany pakiet zdjęciowy. Po sesji pakiet nie może zostać pomniejszony. Do każdego pakietu można dokupić dodatkowe, obrobione zdjęcia w wyznaczonej cenie. Szczegóły w zakładce Oferta.\n\n**17.** Istnieje możliwość wykupienia sesji w postaci bonu podarunkowego. Bon ma ważność 12 miesięcy od daty zakupu i w tym czasie należy wykonać sesję. Istnieje możliwość otrzymania ręcznie wykonanego vouchera w cenie zakupu. Bonu nie można wymienić na gotówkę jak również nie można go zwrócić. Po upływie 12 miesięcy bez żadnego kontaktu od Klienta, bon traci swoją ważność. Wskazane jest więc aby obdarowana osoba zgłosiła się jak najwcześniej do Fotografa w celu ustalenia terminu oraz szczegółów sesji. Zgłoszenie się do Fotografa kilka dni przed końcem ważności bonu nie daje gwarancji wykonania sesji.\n\n**18.** Klient może dobrowolnie wyrazić zgodę na przetwarzanie swoich danych osobowych w tym na wykorzystanie swojego wizerunku utrwalonego na wykonanych fotografiach w celach marketingowych i promocyjnych przez ich publikację na stronie internetowej (www), za pośrednictwem portali społecznościowych takich jak Facebook (Zaczarowane Sesje - Natalia Perkowska), Instagram (@zaczarowane_sesje) oraz w galeriach i wystawach, wykorzystywania w portfolio drukowanym (zdjęcia, fotoksiążki, fotoalbumy, fotoobrazy, ulotki, wizytówki, banery itp.) i udostępnianym klientom i potencjalnym klientom, oraz przekazanie danych osobowych w postaci wizerunku usługodawcom zewnętrznym z którymi wykonawca usługi współpracuje w obrębie działalności którą prowadzi.\n\n*Szanowny Kliencie - dla Fotografa zgoda na publikacje jest niezwykle ważna, bo to jedyna droga by móc promować swoją pracę. Jest mi bardzo miło kiedy mogę pochwalić się efektami sesji i gdy ktoś tak jak Ty trafi do mnie widząc Twoje zdjęcia.*\n\n**19.** Udostępnianie i rozpowszechnianie zdjęć w celach zarobkowych/komercyjnych bez mojej zgody jest zabronione.\n\n**20.** Moja praca jest również moją wielką pasją, co dla Was stanowi wspaniały bonus, ponieważ możecie mieć pewność, że oddam jej całe swoje serce i zaangażowanie. Wszyscy Klienci są dla mnie równie ważni, to dzięki Wam mogę się rozwijać i tworzyć piękne kadry. Każdy moment spędzony z Wami to dla mnie zaszczyt.',
@@ -301,7 +301,7 @@
           title: 'Polityka prywatności | Natalia Perkowska Fotografia',
           desc: 'Polityka prywatności i cookies serwisu Natalia Perkowska Fotografia: administrator danych, cele przetwarzania, prawa osób oraz Piksel Facebooka po zgodzie.'
         },
-        tlo: { bg: K('#F5F0E8'), h1: 'Polityka prywatności' },
+        tlo: { bg: K('#F5F4F1'), h1: 'Polityka prywatności' },
         dodatek: '',
         aktualizacja: '25 listopada 2026'
       }

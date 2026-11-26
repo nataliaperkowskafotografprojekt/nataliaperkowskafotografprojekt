@@ -101,7 +101,7 @@
     if (f.t === 'area') return '<div class="cmsp-fld">' + lab + '<textarea' + at + ' rows="' + (f.rows || 4) + '"' + (f.max ? ' maxlength="' + f.max + '"' : '') + '>' + esc(v == null ? '' : v) + '</textarea>' + hint + '</div>';
     if (f.t === 'sel') return '<div class="cmsp-fld">' + lab + '<select' + at + (f.num ? ' data-num="1"' : '') + '>' + optList(f).map(function (o) { return '<option value="' + esc(o[0]) + '"' + (String(o[0]) === String(v == null ? '' : v) ? ' selected' : '') + '>' + esc(o[1]) + '</option>'; }).join('') + '</select>' + hint + '</div>';
     if (f.t === 'range') return '<div class="cmsp-fld">' + lab + '<div class="cmsp-rng"><input type="range" min="0" max="80" step="5"' + at + ' data-num="1" value="' + (v || 0) + '"><output>' + (v || 0) + '%</output></div>' + hint + '</div>';
-    if (f.t === 'color') return '<div class="cmsp-fld">' + lab + '<input type="color"' + at + ' value="' + esc(/^#[0-9a-fA-F]{6}$/.test(v) ? v : '#F5F0E8') + '"></div>';
+    if (f.t === 'color') return '<div class="cmsp-fld">' + lab + '<input type="color"' + at + ' value="' + esc(/^#[0-9a-fA-F]{6}$/.test(v) ? v : '#F5F4F1') + '"></div>';
     if (f.t === 'img') {
       return '<div class="cmsp-fld cmsp-img">' + '<span class="cmsp-lab">' + esc(f.l) + (f.req ? ' <span aria-hidden="true">*</span>' : '') + '</span><div class="cmsp-imgrow"><div class="cmsp-thumb">' + (v ? '<img src="' + esc(v) + '" alt="">' : '<span>brak</span>') + '</div>' +
         '<div class="cmsp-imgb"><button type="button" class="cmsp-b2" data-upl>Wgraj z dysku</button> <button type="button" class="cmsp-b2" data-rmimg>Usuń zdjęcie</button><input type="file" accept="image/*" hidden></div></div>' +

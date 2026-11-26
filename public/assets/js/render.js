@@ -46,7 +46,7 @@
     u = String(u || '').trim();
     return /^(https?:\/\/|\/(?!\/)|mailto:|tel:|#)/i.test(u) ? u : '';
   }
-  function safeColor(c) { return /^#[0-9a-fA-F]{3,8}$/.test(c || '') ? c : '#F5F0E8'; }
+  function safeColor(c) { return /^#[0-9a-fA-F]{3,8}$/.test(c || '') ? c : '#F5F4F1'; }
   function clamp(n, a, b) { n = Number(n); if (isNaN(n)) n = 0; return Math.max(a, Math.min(b, n)); }
   function today() { return new Date().toISOString().slice(0, 10); }
   function get(o, path) { return String(path).split('.').reduce(function (a, k) { return a == null ? a : a[k]; }, o); }
@@ -276,7 +276,7 @@
       var H2 = P.hero;
       out += sec('start', 'Oferta', H2.bg, '<div class="np-hero-in"><p class="np-eyebrow">' + plain(H2.nad) + '</p>' + h(1, 'start', H2.h1, 'strony.oferta.hero.h1', 'np-h1') + '<p class="np-lead"' + fa('strony.oferta.hero.tekst') + '>' + plain(H2.tekst) + '</p></div>', 'np-hero', true);
       (P.kategorie || []).filter(function (c) { return c.widoczna !== false; }).forEach(function (c, i) {
-        var bg = { typ: 'zdjecie', img: c.img, alt: c.alt, ov: 55, txt: 'jasny', kolor: '#1F1A15' };
+        var bg = { typ: 'zdjecie', img: c.img, alt: c.alt, ov: 55, txt: 'jasny', kolor: '#161616' };
         out += sec(c.id, c.nazwa, bg, '<div class="np-narrow">' + h(2, c.id, c.nazwa, 'strony.oferta.kategorie.' + i + '.nazwa', 'np-h2') + '<p class="np-lead"' + rv(1) + fa('strony.oferta.kategorie.' + i + '.opis') + '>' + plain(c.opis) + '</p>' +
           '<div class="np-actions"' + rv(2) + '>' + btn(temat(c.nazwa), 'Zapytaj o termin') + btn('/portfolio/', 'Zobacz portfolio', 'np-btn-line') + '</div></div>', 'np-cat');
       });
@@ -287,7 +287,7 @@
           '<dl class="np-dl"><div><dt>Czas sesji</dt><dd>' + plain(p.czas) + '</dd></div><div><dt>Liczba zdjęć</dt><dd>' + plain(p.zdjecia) + '</dd></div><div><dt>Cena</dt><dd>' + plain(p.cena) + '</dd></div></dl>' +
           btn(temat(p.nazwa), 'Zapytaj o termin', 'np-btn-line') + '</div></article>';
       }).join('');
-      out += sec('pakiety', 'Pakiety', { typ: 'kolor', kolor: '#F5F0E8', txt: 'ciemny' }, '<div class="np-wide">' + h(2, 'pakiety', P.pakietyH2, 'strony.oferta.pakietyH2', 'np-h2') + '<p class="np-lead"' + fa('strony.oferta.pakietyWstep') + '>' + plain(P.pakietyWstep) + '</p><div class="np-cards3 np-pks">' + pk + '</div><p class="np-note">Zobacz też <a href="/cennik/">cennik sesji zdjęciowych</a>.</p></div>');
+      out += sec('pakiety', 'Pakiety', { typ: 'kolor', kolor: '#F5F4F1', txt: 'ciemny' }, '<div class="np-wide">' + h(2, 'pakiety', P.pakietyH2, 'strony.oferta.pakietyH2', 'np-h2') + '<p class="np-lead"' + fa('strony.oferta.pakietyWstep') + '>' + plain(P.pakietyWstep) + '</p><div class="np-cards3 np-pks">' + pk + '</div><p class="np-note">Zobacz też <a href="/cennik/">cennik sesji zdjęciowych</a>.</p></div>');
       out += sec('gdzie', 'Gdzie sesje', P.gdzie.bg, '<div class="np-narrow">' + h(2, 'gdzie', P.gdzie.h2, 'strony.oferta.gdzie.h2', 'np-h2') + '<p class="np-lead"' + rv(1) + fa('strony.oferta.gdzie.tekst') + '>' + plain(P.gdzie.tekst) + '</p><div class="np-actions"' + rv(2) + '>' + btn('/kontakt/#formularz', P.gdzie.btn) + '</div></div>');
     }
 
@@ -326,7 +326,7 @@
       out += sec('galeria', 'Galeria', P.galeria.bg, '<div class="np-gal"><div class="np-gal-top">' + h(2, 'galeria', P.galeria.h2, 'strony.portfolio.galeria.h2', 'np-h3like') + '<div class="np-chips" role="group" aria-label="Kategorie zdjęć">' + chips + '</div></div>' +
         '<div class="np-slider" role="region" aria-roledescription="karuzela" aria-label="Galeria zdjęć" tabindex="0"><ul class="np-track">' + slides + '</ul></div>' +
         '<div class="np-gal-ctl"><button type="button" class="np-arrow" data-prev aria-label="Poprzednie zdjęcie">‹</button><span class="np-count" data-count aria-live="polite">1/' + zd.length + '</span><button type="button" class="np-arrow" data-next aria-label="Następne zdjęcie">›</button></div></div>', 'np-galsec');
-      out += sec('kontakt', 'Kontakt', { typ: 'kolor', kolor: '#F5F0E8', txt: 'ciemny' }, '<div class="np-narrow"><h2 id="kontakt-h" class="np-h2">Podoba Ci się ten styl?</h2><p class="np-lead">Napisz, a wybierzemy termin Twojej sesji.</p><div class="np-actions">' + btn('/kontakt/#formularz', 'Zapytaj o termin') + '</div></div>');
+      out += sec('kontakt', 'Kontakt', { typ: 'kolor', kolor: '#F5F4F1', txt: 'ciemny' }, '<div class="np-narrow"><h2 id="kontakt-h" class="np-h2">Podoba Ci się ten styl?</h2><p class="np-lead">Napisz, a wybierzemy termin Twojej sesji.</p><div class="np-actions">' + btn('/kontakt/#formularz', 'Zapytaj o termin') + '</div></div>');
     }
 
     else if (k === 'opinie' || k === 'faq' || k === 'aktualnosci' || k === 'regulamin' || k === 'polityka') {
@@ -380,7 +380,7 @@
         '<div class="np-map" data-map="https://www.google.com/maps?q=' + mapq + '&amp;output=embed"><a class="np-btn np-btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=' + mapq + '" rel="noopener" target="_blank">Otwórz ' + esc(f.miasto) + ' w Mapach Google</a> <button type="button" class="np-btn np-btn-line" data-showmap>Pokaż mapę</button></div></div>', 'np-hero np-ctsec', true);
       var tm = (P.tematy || []).map(function (t) { return '<option>' + esc(t.nazwa) + '</option>'; }).join('');
       var kl = esc(d.rodo.klauzula).replace(/\{(\w+)\}/g, function (m, n) { return plain(d.rodo[n] || ''); });
-      out += sec('formularz', 'Formularz', { typ: 'kolor', kolor: '#F5F0E8', txt: 'ciemny' }, '<div class="np-narrow">' + h(2, 'formularz', 'Poproś o termin', 'strony.kontakt.formularz', 'np-h2') +
+      out += sec('formularz', 'Formularz', { typ: 'kolor', kolor: '#F5F4F1', txt: 'ciemny' }, '<div class="np-narrow">' + h(2, 'formularz', 'Poproś o termin', 'strony.kontakt.formularz', 'np-h2') +
         '<p class="np-lead">Napisz, jaką sesją jesteś zainteresowana — odpowiem lub oddzwonię. Pola bez dopisku są wymagane.</p>' +
         '<form class="np-form" id="np-form" action="/api/formularz" method="post" novalidate>' +
         '<p class="np-hp" aria-hidden="true"><label>Nie wypełniaj tego pola<input type="text" name="www" tabindex="-1" autocomplete="off"></label></p>' +

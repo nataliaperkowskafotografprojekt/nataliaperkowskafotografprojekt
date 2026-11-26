@@ -74,3 +74,7 @@ Klientka zwykle edytuje: **Teksty, Zdjęcia i galerię, Aktualności, Cennik, Re
 ## 6. Propozycje dodatkowe
 
 Wersja EN/DE (blisko granicy to realny rynek), prawdziwe opinie z Google, kilka wpisów-porad w Aktualnościach (np. „Co ubrać na sesję”), podstrony lokalne (Rzeszów, Przeworsk, Leżajsk), prawnik do polityki i regulaminu.
+
+## 7. Kolorystyka
+
+Paleta zgodna z życzeniem klientki — stonowana, neutralna: złamana biel `#F5F4F1`, jasny szary `#E7E6E3` / linie `#D2D1CD`, grafit `#5C5B58` (tekst pomocniczy), czerń `#161616`. Akcent to ciemny grafit `#2E2E2C`; zdjęcia z banku są dodatkowo odsycone, żeby nie wprowadzać kolorów. Zmienne kolorów: `szablony/krytyczny.css` (`:root`), po zmianie `node narzedzia/zbuduj.mjs`.
